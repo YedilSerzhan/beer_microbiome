@@ -1,0 +1,29 @@
+html, body{
+  height: 100%;
+}
+
+.my-content{
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+* {
+  font-family: "Roboto";
+  background-color: "#F7F7F7";
+}
+
+.footer {
+  margin-top: auto;
+}
+
+.image_wrapper{
+  overflow: auto;
+  height: 700px;
+  white-space: nowrap;
+}
+
+.image_wrapper > img {
+  display: inline-block;
+  position: relative;
+}
