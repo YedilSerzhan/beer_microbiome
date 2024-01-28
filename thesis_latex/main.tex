@@ -1,3 +1,12 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Master Thesis
+% Yedil Serzhan
+% April 2023
+%
+% License:
+% CC-BY-SA 4.0 -- Creative Commons Attribution-ShareAlike 4.0 International
+% https://creativecommons.org/licenses/by-sa/4.0/legalcode
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \documentclass[
 		a4paper,
 		11pt,
@@ -6,7 +15,6 @@
 		%english,
 		parskip=half,
 		bibliography=totoc,
-		twoside,
 		]
 		{scrartcl}
 \usepackage[automark]{scrlayer-scrpage}
@@ -91,7 +99,6 @@
 
 
 \usepackage{afterpage}
-
 %break on URL lower case letters
 \setcounter{biburllcpenalty}{5000}
 \emergencystretch=1em
@@ -112,7 +119,7 @@
 
 % left fixed width:
 \newcolumntype{L}[1]{>{\raggedright\arraybackslash}p{#1}}
-
+\newcommand{\tool}[1]{\texttt{#1}}
 % \input{glossary.tex}
 
 
@@ -123,8 +130,10 @@
 \makeatother
 
 \usepackage{tabularray}
-
+\usepackage{xurl}
 \usepackage{float}
+\usepackage{threeparttable}
+\usepackage{adjustbox}
 
 %sectioning
 \makeatletter
@@ -143,11 +152,11 @@
 \setcounter{secnumdepth}{5} % how many sectioning levels to assign numbers to
 \setcounter{tocdepth}{3}    % how many sectioning levels to show in outline
 
-
 \begin{document}
+
 \selectlanguage{english}
 \include{titlepage}
-%\cleardoublepage
+% %\cleardoublepage
 \include{declaration}
 \include{acknowledgements}
 \include{abstract}
@@ -156,15 +165,15 @@
 \tableofcontents
 \clearpage
 \include{introduction}
-\include{priorWork}
+\include{stateOfArt}
 \include{methods}
 \include{results}
-\include{discussionOutlook}
-\include{appendix}
+% \include{discussion}
+\include{conclusion}
+% \include{appendix}
 
 %\cleardoublepage
 \printbibliography
-\clearpage
-\printglossaries
-
+% \clearpage
+% \printglossaries
 \end{document}

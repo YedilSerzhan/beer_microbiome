@@ -1,0 +1,128 @@
+\subsection{Data analysis platforms}
+        \subsubsection{GenePattern}
+            GenePattern is an open-source software suite for computational biology\cite{reich2006genepattern}. It was initially conceived and established at the Broad Institute, with the primary purpose of facilitating the analysis of genomic data. This software package, which is accessible at no cost, was designed to empower researchers in devising, documenting, and replicating genomic analysis techniques. Having made its debut in 2004, GenePattern's ongoing development now takes place at the University of California, San Diego.
+
+            GenePattern has a fairly easy-to-use web-based user interface, which contains hundreds of analytical tools for gene expression analysis. There is no programming experience required. Most of the works and analyses can be done by just dragging and clicking, which in a sense facilitates new researchers and students without expert-level experience.
+
+            GenePattern also has a service "GenePattern Notebook environment". It expands upon the Jupyter Notebook system, enabling researchers to generate documents incorporating formatted text, visuals, multimedia, executable code, and GenePattern analyses. This creates a unified "research narrative" that combines scientific discourse and analyses in one location.
+
+            GenePattern pipelines facilitate the capturing, automation, and sharing of the intricate sequence of steps necessary for analyzing genomic data. These pipelines allow for in silico reproducible research by enabling the creation and distribution of an entire computational analysis methodology within a single executable script.
+            
+            For published research, especially in silico research, it is imperative to include adequate information to entirely reproduce the research outcomes. GenePattern pipelines promote reproducible research by documenting the analysis methods, parameters, and data utilized in generating the research findings. GenePattern ensures that each pipeline version (and its results) remains unaltered, as it versions every pipeline and its methods, even while the research and pipeline continue to progress.
+            
+            GenePattern offers a straightforward application interface, granting users access to computational analysis methods and tools, irrespective of their computational proficiency. Additionally, GenePattern presents a programmatic interface that avails these analysis modules to computational biologists and developers using Java, MATLAB, and R languages.
+
+        \subsubsection{Bioconductor}
+            Bioconductor is a complimentary, open-source, and openly developed software initiative aimed at analyzing and comprehending genomic data produced through molecular biology wet lab experiments\cite{gentleman2004bioconductor}. Primarily based on the statistical R programming language, Bioconductor also includes contributions in other languages. It adheres to R's semiannual release schedule, maintaining a release version in tandem with R's release version, and a development version that aligns with R's development version. The release version typically suffices for most users. Additionally, numerous genome annotation packages are available, focusing mainly on various types of microarrays.
+
+            As computational methodologies continue to advance in the interpretation of biological data, the Bioconductor project serves as an open-source software repository that offers a diverse array of statistical tools developed within the R programming environment. Utilizing R's extensive statistical and graphical capabilities, numerous Bioconductor packages have been designed to address various data analysis requirements. Employing these packages necessitates a fundamental understanding of the R programming language. Consequently, R and Bioconductor packages, which boast a robust computing foundation, are employed by a majority of biologists who stand to significantly benefit from their dataset analysis capabilities. This allows biologists easy access to genomic data analysis without necessitating programming expertise.
+            
+            Each Bioconductor package includes a minimum of one vignette, a document providing a textual, task-oriented description of the package's functionality. Vignettes assume various forms, ranging from simple "How-to" guides that demonstrate a particular task's execution with the package's software, to more comprehensive overviews or discussions of issues related to the package. The Bioconductor project intends to offer vignettes that illustrate more complex concepts, independent of specific packages. Users are encouraged to participate in this effort.
+            
+            The Bioconductor project aspires to provide access to an extensive range of powerful statistical and graphical methods for genomic data analysis. Available analysis packages include those for pre-processing Affymetrix and Illumina, cDNA array data; identifying differentially expressed genes; graph theoretical analyses; and plotting genomic data. Additionally, the R package system offers implementations for a wide array of cutting-edge statistical and graphical techniques.
+            
+            Bioconductor also delivers software for the real-time association of microarray and other genomic data with biological metadata from web databases such as GenBank, LocusLink, and PubMed. Functions are provided for incorporating statistical analysis results in HTML reports with links to annotation web resources. Software tools are accessible for assembling and processing genomic annotation data from various databases, with the AnnotationDbi package. Customized annotation libraries can also be assembled.
+            
+            Committed to full open-source discipline, the Bioconductor project distributes contributions via a platform resembling SourceForge.net. All contributions are expected to adhere to an open-source license, such as Artistic 2.0, GPL2, or BSD. The benefits of open-source software for microarray data analysis and computational biology include full access to algorithms and their implementations, facilitating software improvements, promoting good scientific computing and statistical practice, providing a workbench of tools for researchers, ensuring international scientific community ownership of software tools, and promoting reproducible research.
+            
+            Open development is encouraged, with users invited to become developers by contributing Bioconductor-compliant packages or documentation. Bioconductor also fosters collaboration on software by linking different groups with shared goals, potentially at the level of joint development.
+
+        \subsubsection{Taverna}
+            Taverna is an open-source software tool devised for designing and executing workflows\cite{hull2006taverna}. It facilitates the integration of various software components, including WSDL SOAP or REST Web services offered by organizations like the National Center for Biotechnology Information, the European Bioinformatics Institute, the DNA Databank of Japan (DDBJ), SoapLab, BioMOBY, and EMBOSS. The Taverna Workbench allows for the import of new service descriptions, making the available services unlimited.
+            
+            The Taverna Workbench supplies a desktop authoring environment and an enactment engine for scientific workflows. Additionally, the Taverna workflow engine is independently accessible as a Java API, command-line tool, or server.
+            
+            Taverna is utilized in numerous domains, such as bioinformatics, cheminformatics, medicine, astronomy, social science, music, and digital preservation.
+            
+            Services for Taverna workflows could be discovered via the BioCatalogue, a public, centralized, and curated registry of Life Science Web services. Moreover, Taverna workflows could be shared with others through the myExperiment social website for scientists. BioCatalogue and myExperiment are two additional products from the myGrid consortium.
+            
+            Taverna workflows are capable of invoking general SOAP/WSDL or REST Web services, as well as more specific SADI, BioMart, BioMoby, and SoapLab Web services. They could also invoke R statistical services, local Java code, external tools on local and remote machines (via ssh), perform XPath and other text manipulation, import spreadsheets, and include sub-workflows.
+            
+            The Taverna Workbench featured workflow monitoring and data provenance examination, exposing details of the workflow run as a W3C PROV-O RDF provenance graph within a structured Research Object bundle ZIP file, collectively known as TavernaProv.
+            
+            Taverna incorporates the ability to search for services described in BioCatalogue to be used within workflows. However, services do not need to be in BioCatalogue to be included in workflows, as they could be added from a WSDL Web Service description or entered as a REST URI pattern.
+            
+            Taverna also provides the capability to search for workflows on myExperiment. The Taverna Workbench could download, modify, and run workflows found on myExperiment while also uploading created workflows to share with others through the myExperiment social platform.
+            
+            Taverna workflows are not limited to execution within the Taverna Workbench. They could also be run by: 1: A command-line execution tool. 2: A remote execution server enabling Taverna workflows to be run on other machines, computational grids, clouds, Web pages, and portals. 3: The online workflow designer and enactor, OnlineHPC.
+            
+            Taverna supports pipelining and streaming of data, allowing services downstream in the workflow to initiate as soon as the first data item was received. Taverna services are executed in parallel when possible, as Taverna workflows are primarily data-driven rather than control-driven.
+
+        \subsubsection{Amazon Web Services}
+            Amazon Web Services (AWS) presents an extensive range of cloud-based solutions tailored to the distinct needs of bioinformatics research. Given the situation that in recent years bioinformatics has witnessed remarkable growth and the complexity and scale of biological datasets and computation has been escalating.
+            
+            AWS offers a versatile and scalable infrastructure that allows bioinformatics researchers and practitioners to analyze large volumes of data, develop custom algorithms, and collaborate effectively with peers globally. 
+            
+            Amazon S3 (Simple Storage Service) provides secure, scalable, and cost-effective storage solutions for diverse biological datasets, such as genomic sequences, protein structures, and metabolomics profiles. This service allows researchers to store and access data effortlessly while ensuring its integrity and accessibility.
+            
+            Amazon EC2 (Elastic Compute Cloud) offers adjustable compute capacity in the cloud, enabling researchers to scale their computational resources according to their bioinformatics tasks' requirements. This adaptability is especially beneficial when addressing computationally demanding tasks like genome assembly, sequence alignment, and molecular modeling.
+            
+            AWS Batch streamlines the management and execution of large-scale batch processing tasks, automating resource allocation and optimizing resource utilization. This service is particularly valuable for analyzing high-throughput sequencing data or conducting large-scale simulations.
+            
+            Amazon SageMaker constitutes a comprehensive managed machine learning service, facilitating the rapid and efficient development, training, and deployment of machine learning models. Utilizing machine learning, researchers have the ability to discern intricate patterns, formulate predictions, and propose novel hypotheses.
+            
+            AWS Glue is a fully managed ETL (Extract, Transform, and Load) service. It simplifies the integration, cleansing, and preparation of data for analysis. For bioinformatics research, this service is particularly advantageous for managing diverse and heterogeneous datasets.
+            
+            Besides these essential services, AWS also offers various tools and resources to promote collaboration and sharing among bioinformatics researchers. For example, the AWS Marketplace includes a wide selection of pre-configured bioinformatics software tools and pipelines, enabling researchers to effortlessly deploy and customize their analytical workflows. Moreover, AWS allows seamless integration with platforms like Galaxy, a popular open-source framework for bioinformatics data analysis.
+
+        \subsubsection{Comparisons}
+            \begin{table}[ht!]
+                \centering
+                \small
+                \begin{tabular}{l|c|c|c|c|c}
+                    \hline
+                    Aspect                & Galaxy          & GenePattern & Bioconductor & Taverna & AWS       \\
+                    \hline
+                    Usability             & Very High            & High        & High         & Medium  & Medium    \\
+                    Reproducibility       & High            & High        & High         & High    & High      \\
+                    Accessibility         & High            & High        & High         & High    & Medium    \\
+                    Scalability           & High            & Medium      & Medium       & Medium  & High      \\
+                    Available Tools       & Very High       & High        & High         & High    & High      \\
+                    Pricing               & Free            & Free        & Free         & Free    & Paid      \\
+                    Customizability       & High            & Medium      & High         & High    & High      \\
+                    Research Focus        & General         & Genomics    & R-based      & Workflow   & General\\
+                                          & purpose         &             & genomics     & management & purpose \\
+                    \hline
+                \end{tabular}
+                \caption{Comparison of bioinformatics data analysis platforms} \label{tab:stateOfArt:platforms}
+            \end{table}
+            \justifying
+            \normalsize
+            This table offers a concise comparison of the state of art computational bioinformatics data analysis platforms, focusing on aspects such as usability, reproducibility, accessibility, scalability, available tools, pricing, customizability, and research focus. 
+            
+            Galaxy offers several advantages over the other platforms, making it a better choice for various aspects of computational bioinformatics data analysis:
+            
+            Usability: Galaxy provides a user-friendly, web-based interface that enables researchers to access and analyze data without extensive programming skills. This feature makes it suitable for users with diverse levels of expertise, unlike some other platforms that require more advanced technical skills.
+            
+            Reproducibility: Galaxy promotes reproducibility by allowing users to create, share, and collaborate on custom analysis pipelines. All steps in the data analysis process are documented, and workflows can be easily shared and reused, ensuring transparency and reproducibility across different projects and institutions.
+            
+            Accessibility: Galaxy is an open-source platform with an active community of developers and users, providing extensive support and resources for its users. This accessibility fosters a collaborative environment and facilitates the sharing of knowledge and expertise.
+            
+            Scalability: Galaxy can be deployed on local servers, cloud-based infrastructure, or high-performance computing clusters, providing scalable and cost-effective solutions for analyzing large and complex datasets. This flexibility makes it suitable for a wide range of research projects, from small-scale studies to large collaborative efforts.
+            
+            Available Tools: Galaxy offers a vast array of tools for data processing, analysis, and visualization, covering various aspects of bioinformatics research, including genomics, transcriptomics, proteomics, and metagenomics. This extensive toolkit allows researchers to address diverse research questions and analyze complex datasets using a single, integrated platform.
+
+            Pricing: Galaxy is an open-source platform and is free to use. However, additional costs may be incurred if deployed on cloud-based infrastructure or high-performance computing clusters. In contrast, AWS and Azure are paid platforms, where usage costs are associated with the computational resources and storage employed.
+
+            Customizability: Galaxy's high customizability allows users to create, modify, and integrate their tools and workflows. Its open-source nature and active community support the development and sharing of custom tools, providing researchers with the flexibility to adapt the platform to their specific research needs. 
+
+            In summary, Galaxy's high usability, reproducibility, free and easy accessibility, scalability, and comprehensive suite of available tools make it a preferred choice for many researchers in the field of computational bioinformatics data analysis.
+
+
+    \subsection{Galaxy}
+        Galaxy is a versatile open-source bioinformatics platform designed to facilitate the analysis and interpretation of complex biological data. Developed by a collaborative community of researchers, Galaxy is designed to address the challenges faced by life scientists in the era of high-throughput genomics, proteomics, and other histological data.
+        By providing a comprehensive set of tools and resources in a user-friendly interface, Galaxy facilitates a collaborative and reproducible approach to biological data analysis, ultimately contributing to the advancement of scientific knowledge.
+                
+        \subsubsection{Web-based user interface}
+        One of the best benefits of Galaxy is its web-based, user-friendly interface. The interface enables researchers with diverse skill sets to access and use a wide range of bioinformatics tools without the need for extensive programming expertise. Galaxy's platform provides a comprehensive, standardized environment for data management, processing, and analysis, thereby increasing the reproducibility and transparency of scientific research.
+
+        \subsubsection{Galaxy workflows}
+        One of Galaxy's key features is its modular architecture. The architecture allows users to create and share custom workflows that can be customized to address specific biological questions or experimental designs. By integrating numerous analytical tools and resources, Galaxy allows for the seamless processing of data across multiple steps and formats. This supports both novice and experienced researchers in gaining meaningful insights from complex datasets.
+
+        \subsubsection{Open source}
+        Galaxy is open source. That means all of the original source code of Galaxy is made freely available. And anyone is allowed to redistribute and modify them. This is a huge benefit to the whole bioinformatics researchers and developers. If you're not satisfied with Galaxy's current features and functionality, you can request an issue from the Galaxy developers and suggest improvements, or you can even submit a pull request to add new features yourself. 
+
+        Galaxy currently has UseGalaxy.eu, UseGalaxy.org, and UseGalaxy.org.au servers running, which are maintained by different groups of developers. With the benefits of open source, you can even start a new instance yourself, build your own Galaxy platform.
+
+        \subsubsection{Bioblend}
+        
