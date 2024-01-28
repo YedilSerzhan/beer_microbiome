@@ -1,0 +1,511 @@
+{
+    "a_galaxy_workflow": "true",
+    "annotation": "",
+    "format-version": "0.1",
+    "name": "shotgun workflow for a collection of paired inputs",
+    "steps": {
+        "0": {
+            "annotation": "",
+            "content_id": null,
+            "errors": null,
+            "id": 0,
+            "input_connections": {},
+            "inputs": [],
+            "label": null,
+            "name": "Input dataset collection",
+            "outputs": [],
+            "position": {
+                "left": 0,
+                "top": 305.3125
+            },
+            "tool_id": null,
+            "tool_state": "{\"optional\": false, \"tag\": \"\", \"collection_type\": \"list:paired\"}",
+            "tool_version": null,
+            "type": "data_collection_input",
+            "uuid": "f799a228-043d-4606-8df7-48cf04b37231",
+            "when": null,
+            "workflow_outputs": []
+        },
+        "1": {
+            "annotation": "",
+            "content_id": "toolshed.g2.bx.psu.edu/repos/iuc/kraken2/kraken2/2.1.1+galaxy1",
+            "errors": null,
+            "id": 1,
+            "input_connections": {
+                "single_paired|input_pair": {
+                    "id": 0,
+                    "output_name": "output"
+                }
+            },
+            "inputs": [
+                {
+                    "description": "runtime parameter for tool Kraken2",
+                    "name": "single_paired"
+                }
+            ],
+            "label": null,
+            "name": "Kraken2",
+            "outputs": [
+                {
+                    "name": "report_output",
+                    "type": "tabular"
+                },
+                {
+                    "name": "output",
+                    "type": "tabular"
+                }
+            ],
+            "position": {
+                "left": 276.125,
+                "top": 255.703125
+            },
+            "post_job_actions": {},
+            "tool_id": "toolshed.g2.bx.psu.edu/repos/iuc/kraken2/kraken2/2.1.1+galaxy1",
+            "tool_shed_repository": {
+                "changeset_revision": "e674066930b2",
+                "name": "kraken2",
+                "owner": "iuc",
+                "tool_shed": "toolshed.g2.bx.psu.edu"
+            },
+            "tool_state": "{\"confidence\": \"0.0\", \"kraken2_database\": \"2022-09-04T165121Z_standard_prebuilt_pluspf_2022-06-07\", \"min_base_quality\": \"0\", \"minimum_hit_groups\": \"3\", \"quick\": false, \"report\": {\"create_report\": true, \"use_mpa_style\": false, \"report_zero_counts\": false, \"report_minimizer_data\": true}, \"single_paired\": {\"single_paired_selector\": \"collection\", \"__current_case__\": 0, \"input_pair\": {\"__class__\": \"RuntimeValue\"}}, \"split_reads\": false, \"use_names\": false, \"__page__\": null, \"__rerun_remap_job_id__\": null}",
+            "tool_version": "2.1.1+galaxy1",
+            "type": "tool",
+            "uuid": "46f6aaed-f14f-4e73-b030-e05e1938272c",
+            "when": null,
+            "workflow_outputs": [
+                {
+                    "label": null,
+                    "output_name": "report_output",
+                    "uuid": "ef5411f1-d7fa-46ac-87da-d20a50466723"
+                },
+                {
+                    "label": null,
+                    "output_name": "output",
+                    "uuid": "47e718ed-8178-4533-afd0-3acb696a5895"
+                }
+            ]
+        },
+        "2": {
+            "annotation": "",
+            "content_id": "toolshed.g2.bx.psu.edu/repos/iuc/krakentools_kreport2krona/krakentools_kreport2krona/1.2+galaxy0",
+            "errors": null,
+            "id": 2,
+            "input_connections": {
+                "report": {
+                    "id": 1,
+                    "output_name": "report_output"
+                }
+            },
+            "inputs": [],
+            "label": null,
+            "name": "Krakentools: Convert kraken report file",
+            "outputs": [
+                {
+                    "name": "output",
+                    "type": "tabular"
+                }
+            ],
+            "position": {
+                "left": 550,
+                "top": 1.78125
+            },
+            "post_job_actions": {},
+            "tool_id": "toolshed.g2.bx.psu.edu/repos/iuc/krakentools_kreport2krona/krakentools_kreport2krona/1.2+galaxy0",
+            "tool_shed_repository": {
+                "changeset_revision": "88d274322340",
+                "name": "krakentools_kreport2krona",
+                "owner": "iuc",
+                "tool_shed": "toolshed.g2.bx.psu.edu"
+            },
+            "tool_state": "{\"intermediate_ranks\": false, \"report\": {\"__class__\": \"ConnectedValue\"}, \"__page__\": null, \"__rerun_remap_job_id__\": null}",
+            "tool_version": "1.2+galaxy0",
+            "type": "tool",
+            "uuid": "c81f1ac2-e0da-4aec-9832-11c9b37a4204",
+            "when": null,
+            "workflow_outputs": [
+                {
+                    "label": null,
+                    "output_name": "output",
+                    "uuid": "49d35936-2f61-4fb7-8e9f-490087424dfd"
+                }
+            ]
+        },
+        "3": {
+            "annotation": "",
+            "content_id": "toolshed.g2.bx.psu.edu/repos/iuc/bracken/est_abundance/2.7+galaxy1",
+            "errors": null,
+            "id": 3,
+            "input_connections": {
+                "input": {
+                    "id": 1,
+                    "output_name": "report_output"
+                }
+            },
+            "inputs": [
+                {
+                    "description": "runtime parameter for tool Estimate Abundance at Taxonomic Level",
+                    "name": "input"
+                }
+            ],
+            "label": null,
+            "name": "Estimate Abundance at Taxonomic Level",
+            "outputs": [
+                {
+                    "name": "report",
+                    "type": "tabular"
+                },
+                {
+                    "name": "kraken_report",
+                    "type": "tabular"
+                }
+            ],
+            "position": {
+                "left": 544.296875,
+                "top": 260.234375
+            },
+            "post_job_actions": {},
+            "tool_id": "toolshed.g2.bx.psu.edu/repos/iuc/bracken/est_abundance/2.7+galaxy1",
+            "tool_shed_repository": {
+                "changeset_revision": "79450f7fd718",
+                "name": "bracken",
+                "owner": "iuc",
+                "tool_shed": "toolshed.g2.bx.psu.edu"
+            },
+            "tool_state": "{\"input\": {\"__class__\": \"RuntimeValue\"}, \"kmer_distr\": \"k2_pluspf_20210517\", \"level\": \"S\", \"logfile_output\": false, \"out_report\": true, \"threshold\": \"10\", \"__page__\": null, \"__rerun_remap_job_id__\": null}",
+            "tool_version": "2.7+galaxy1",
+            "type": "tool",
+            "uuid": "f22a3629-03cc-4192-8720-7d5c28b201b7",
+            "when": null,
+            "workflow_outputs": [
+                {
+                    "label": "Estimate Abundance at Taxonomic Level on input dataset(s): Report",
+                    "output_name": "report",
+                    "uuid": "85a7c37b-ec92-4a30-bc4f-5c6e21910fc0"
+                },
+                {
+                    "label": null,
+                    "output_name": "kraken_report",
+                    "uuid": "504e0e95-1be6-4c5b-8f55-d94b7cdfedac"
+                }
+            ]
+        },
+        "4": {
+            "annotation": "",
+            "content_id": "toolshed.g2.bx.psu.edu/repos/crs4/taxonomy_krona_chart/taxonomy_krona_chart/2.7.1",
+            "errors": null,
+            "id": 4,
+            "input_connections": {
+                "type_of_data|input": {
+                    "id": 2,
+                    "output_name": "output"
+                }
+            },
+            "inputs": [],
+            "label": null,
+            "name": "Krona pie chart",
+            "outputs": [
+                {
+                    "name": "output",
+                    "type": "html"
+                }
+            ],
+            "position": {
+                "left": 849.40625,
+                "top": 0.0
+            },
+            "post_job_actions": {},
+            "tool_id": "toolshed.g2.bx.psu.edu/repos/crs4/taxonomy_krona_chart/taxonomy_krona_chart/2.7.1",
+            "tool_shed_repository": {
+                "changeset_revision": "1334cb4c6b68",
+                "name": "taxonomy_krona_chart",
+                "owner": "crs4",
+                "tool_shed": "toolshed.g2.bx.psu.edu"
+            },
+            "tool_state": "{\"combine_inputs\": false, \"root_name\": \"Root\", \"type_of_data\": {\"type_of_data_selector\": \"text\", \"__current_case__\": 1, \"input\": {\"__class__\": \"ConnectedValue\"}}, \"__page__\": null, \"__rerun_remap_job_id__\": null}",
+            "tool_version": "2.7.1",
+            "type": "tool",
+            "uuid": "7cbce9d3-6cb5-4d29-9286-5a8ff9248a59",
+            "when": null,
+            "workflow_outputs": [
+                {
+                    "label": "Krona pie chart on input dataset(s): HTML",
+                    "output_name": "output",
+                    "uuid": "3ab0432d-acfd-4213-b327-ef579e570390"
+                }
+            ]
+        },
+        "5": {
+            "annotation": "",
+            "content_id": "toolshed.g2.bx.psu.edu/repos/iuc/krakentools_alpha_diversity/krakentools_alpha_diversity/1.2+galaxy0",
+            "errors": null,
+            "id": 5,
+            "input_connections": {
+                "filename": {
+                    "id": 3,
+                    "output_name": "report"
+                }
+            },
+            "inputs": [],
+            "label": null,
+            "name": "Krakentools: Calculates alpha diversity",
+            "outputs": [
+                {
+                    "name": "output",
+                    "type": "txt"
+                }
+            ],
+            "position": {
+                "left": 844.234375,
+                "top": 158.65625
+            },
+            "post_job_actions": {},
+            "tool_id": "toolshed.g2.bx.psu.edu/repos/iuc/krakentools_alpha_diversity/krakentools_alpha_diversity/1.2+galaxy0",
+            "tool_shed_repository": {
+                "changeset_revision": "9d0330e23bfd",
+                "name": "krakentools_alpha_diversity",
+                "owner": "iuc",
+                "tool_shed": "toolshed.g2.bx.psu.edu"
+            },
+            "tool_state": "{\"alpha\": \"Sh\", \"filename\": {\"__class__\": \"ConnectedValue\"}, \"__page__\": null, \"__rerun_remap_job_id__\": null}",
+            "tool_version": "1.2+galaxy0",
+            "type": "tool",
+            "uuid": "c9d5e4e2-05f4-4e9b-a165-84fe028280a7",
+            "when": null,
+            "workflow_outputs": [
+                {
+                    "label": null,
+                    "output_name": "output",
+                    "uuid": "7de3856c-018c-4ba1-ac92-ef4966f0c67d"
+                }
+            ]
+        },
+        "6": {
+            "annotation": "",
+            "content_id": "toolshed.g2.bx.psu.edu/repos/iuc/krakentools_alpha_diversity/krakentools_alpha_diversity/1.2+galaxy0",
+            "errors": null,
+            "id": 6,
+            "input_connections": {
+                "filename": {
+                    "id": 3,
+                    "output_name": "report"
+                }
+            },
+            "inputs": [],
+            "label": null,
+            "name": "Krakentools: Calculates alpha diversity",
+            "outputs": [
+                {
+                    "name": "output",
+                    "type": "txt"
+                }
+            ],
+            "position": {
+                "left": 846.296875,
+                "top": 311.59375
+            },
+            "post_job_actions": {
+                "HideDatasetActionoutput": {
+                    "action_arguments": {},
+                    "action_type": "HideDatasetAction",
+                    "output_name": "output"
+                }
+            },
+            "tool_id": "toolshed.g2.bx.psu.edu/repos/iuc/krakentools_alpha_diversity/krakentools_alpha_diversity/1.2+galaxy0",
+            "tool_shed_repository": {
+                "changeset_revision": "9d0330e23bfd",
+                "name": "krakentools_alpha_diversity",
+                "owner": "iuc",
+                "tool_shed": "toolshed.g2.bx.psu.edu"
+            },
+            "tool_state": "{\"alpha\": \"F\", \"filename\": {\"__class__\": \"ConnectedValue\"}, \"__page__\": null, \"__rerun_remap_job_id__\": null}",
+            "tool_version": "1.2+galaxy0",
+            "type": "tool",
+            "uuid": "8420e0a2-4c26-4816-aac2-e44595337da3",
+            "when": null,
+            "workflow_outputs": []
+        },
+        "7": {
+            "annotation": "",
+            "content_id": "toolshed.g2.bx.psu.edu/repos/iuc/krakentools_alpha_diversity/krakentools_alpha_diversity/1.2+galaxy0",
+            "errors": null,
+            "id": 7,
+            "input_connections": {
+                "filename": {
+                    "id": 3,
+                    "output_name": "report"
+                }
+            },
+            "inputs": [],
+            "label": null,
+            "name": "Krakentools: Calculates alpha diversity",
+            "outputs": [
+                {
+                    "name": "output",
+                    "type": "txt"
+                }
+            ],
+            "position": {
+                "left": 847.890625,
+                "top": 458.1875
+            },
+            "post_job_actions": {
+                "HideDatasetActionoutput": {
+                    "action_arguments": {},
+                    "action_type": "HideDatasetAction",
+                    "output_name": "output"
+                }
+            },
+            "tool_id": "toolshed.g2.bx.psu.edu/repos/iuc/krakentools_alpha_diversity/krakentools_alpha_diversity/1.2+galaxy0",
+            "tool_shed_repository": {
+                "changeset_revision": "9d0330e23bfd",
+                "name": "krakentools_alpha_diversity",
+                "owner": "iuc",
+                "tool_shed": "toolshed.g2.bx.psu.edu"
+            },
+            "tool_state": "{\"alpha\": \"Si\", \"filename\": {\"__class__\": \"ConnectedValue\"}, \"__page__\": null, \"__rerun_remap_job_id__\": null}",
+            "tool_version": "1.2+galaxy0",
+            "type": "tool",
+            "uuid": "48596261-b403-4331-afa4-77e9e60f2878",
+            "when": null,
+            "workflow_outputs": []
+        },
+        "8": {
+            "annotation": "",
+            "content_id": "toolshed.g2.bx.psu.edu/repos/iuc/krakentools_beta_diversity/krakentools_beta_diversity/1.2+galaxy0",
+            "errors": null,
+            "id": 8,
+            "input_connections": {
+                "inputs": {
+                    "id": 3,
+                    "output_name": "report"
+                }
+            },
+            "inputs": [],
+            "label": null,
+            "name": "Krakentools: calculates beta diversity (Bray-Curtis dissimilarity)",
+            "outputs": [
+                {
+                    "name": "output",
+                    "type": "txt"
+                }
+            ],
+            "position": {
+                "left": 850.78125,
+                "top": 607.40625
+            },
+            "post_job_actions": {},
+            "tool_id": "toolshed.g2.bx.psu.edu/repos/iuc/krakentools_beta_diversity/krakentools_beta_diversity/1.2+galaxy0",
+            "tool_shed_repository": {
+                "changeset_revision": "b33f117e9b67",
+                "name": "krakentools_beta_diversity",
+                "owner": "iuc",
+                "tool_shed": "toolshed.g2.bx.psu.edu"
+            },
+            "tool_state": "{\"inputs\": {\"__class__\": \"ConnectedValue\"}, \"sample\": {\"type\": \"bracken\", \"__current_case__\": 2}, \"__page__\": null, \"__rerun_remap_job_id__\": null}",
+            "tool_version": "1.2+galaxy0",
+            "type": "tool",
+            "uuid": "1f0fa6df-3781-4984-b5ef-8012c06eb4ff",
+            "when": null,
+            "workflow_outputs": [
+                {
+                    "label": null,
+                    "output_name": "output",
+                    "uuid": "05feaf4d-0c52-4ef6-991b-9652e4a8b109"
+                }
+            ]
+        },
+        "9": {
+            "annotation": "",
+            "content_id": "toolshed.g2.bx.psu.edu/repos/iuc/krakentools_alpha_diversity/krakentools_alpha_diversity/1.2+galaxy0",
+            "errors": null,
+            "id": 9,
+            "input_connections": {
+                "filename": {
+                    "id": 3,
+                    "output_name": "report"
+                }
+            },
+            "inputs": [],
+            "label": null,
+            "name": "Krakentools: Calculates alpha diversity",
+            "outputs": [
+                {
+                    "name": "output",
+                    "type": "txt"
+                }
+            ],
+            "position": {
+                "left": 1071.328125,
+                "top": 160.015625
+            },
+            "post_job_actions": {
+                "HideDatasetActionoutput": {
+                    "action_arguments": {},
+                    "action_type": "HideDatasetAction",
+                    "output_name": "output"
+                }
+            },
+            "tool_id": "toolshed.g2.bx.psu.edu/repos/iuc/krakentools_alpha_diversity/krakentools_alpha_diversity/1.2+galaxy0",
+            "tool_shed_repository": {
+                "changeset_revision": "9d0330e23bfd",
+                "name": "krakentools_alpha_diversity",
+                "owner": "iuc",
+                "tool_shed": "toolshed.g2.bx.psu.edu"
+            },
+            "tool_state": "{\"alpha\": \"ISi\", \"filename\": {\"__class__\": \"ConnectedValue\"}, \"__page__\": null, \"__rerun_remap_job_id__\": null}",
+            "tool_version": "1.2+galaxy0",
+            "type": "tool",
+            "uuid": "5d53923a-ef9a-4d41-8296-ae07b4e007b2",
+            "when": null,
+            "workflow_outputs": []
+        },
+        "10": {
+            "annotation": "",
+            "content_id": "toolshed.g2.bx.psu.edu/repos/iuc/krakentools_alpha_diversity/krakentools_alpha_diversity/1.2+galaxy0",
+            "errors": null,
+            "id": 10,
+            "input_connections": {
+                "filename": {
+                    "id": 3,
+                    "output_name": "report"
+                }
+            },
+            "inputs": [],
+            "label": null,
+            "name": "Krakentools: Calculates alpha diversity",
+            "outputs": [
+                {
+                    "name": "output",
+                    "type": "txt"
+                }
+            ],
+            "position": {
+                "left": 1074.734375,
+                "top": 310.5625
+            },
+            "post_job_actions": {
+                "HideDatasetActionoutput": {
+                    "action_arguments": {},
+                    "action_type": "HideDatasetAction",
+                    "output_name": "output"
+                }
+            },
+            "tool_id": "toolshed.g2.bx.psu.edu/repos/iuc/krakentools_alpha_diversity/krakentools_alpha_diversity/1.2+galaxy0",
+            "tool_shed_repository": {
+                "changeset_revision": "9d0330e23bfd",
+                "name": "krakentools_alpha_diversity",
+                "owner": "iuc",
+                "tool_shed": "toolshed.g2.bx.psu.edu"
+            },
+            "tool_state": "{\"alpha\": \"BP\", \"filename\": {\"__class__\": \"ConnectedValue\"}, \"__page__\": null, \"__rerun_remap_job_id__\": null}",
+            "tool_version": "1.2+galaxy0",
+            "type": "tool",
+            "uuid": "d7aea5bf-fcbd-4ab8-9c2a-aca19ea63672",
+            "when": null,
+            "workflow_outputs": []
+        }
+    },
+    "tags": [],
+    "uuid": "4820c6dc-2027-4350-8162-f016834781b5",
+    "version": 17
+}
