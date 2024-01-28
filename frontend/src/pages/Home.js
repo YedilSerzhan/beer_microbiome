@@ -6,7 +6,9 @@ import Typography from '@mui/material/Typography';
 import StickyHeadTable from '../components/MyTable'
 import beer_svg from '../images/undraw_beer_xg5f.svg'
 import SearchBar from '../components/SearchBar';
-
+import AnimatedCountCard from '../components/CountCard';
+import Stack from '@mui/material/Stack';
+import Paper from '@mui/material/Paper';
 
 function Home() {
     const [samples, setSamples] = useState([])
@@ -99,25 +101,17 @@ function Home() {
                                 alt="The house from the offer."
                                 src={beer_svg}
                             />
-                            {/* <Stack spacing={4}>
-                <MyPaper />
-                <Paper variant="outlined" sx={{ bgcolor: "#F7F7F7", p: 3, border: 2, borderColor: "#E0E0E0" }}>
-                  <Typography variant="h5" sx={{ mb: 1 }} >
-                    Taxonomy
-                  </Typography>
-                  <Typography variant="body1" sx={{ mb: 1 }}>
-                    234 species found from 798 samples
-                  </Typography>
-                </Paper>
-                <Paper variant="outlined" sx={{ bgcolor: "#F7F7F7", p: 3, border: 2, borderColor: "#E0E0E0" }}>
-                  <Typography variant="h5" sx={{ mb: 1 }} >
-                    Workflow
-                  </Typography>
-                  <Typography variant="body1" sx={{ mb: 1 }}>
-                    1 shotgun and 1 amplicon workflow
-                  </Typography>
-                </Paper>
-              </Stack> */}
+                        </Grid>
+                    </Grid>
+                    <Grid container spacing={3} justify="center">
+                        <Grid item xs={12} sm={6} md={4}>
+                            <AnimatedCountCard label="Samples" count={301} />
+                        </Grid>
+                        <Grid item xs={12} sm={6} md={4}>
+                            <AnimatedCountCard label="Beers" count={56} />
+                        </Grid>
+                        <Grid item xs={12} sm={6} md={4}>
+                            <AnimatedCountCard label="Beer breweries" count={47} />
                         </Grid>
                     </Grid>
                     <Grid xs={12} md={5} item sx={{ my: 6 }}>
